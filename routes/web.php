@@ -21,3 +21,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 //Dashboard
 Route::get('/admin_dashboard','DashboardController@admin_dashboard')->name('admin_dashboard');
+//Medicine
+Route::get('/add_medicine','MedicineController@add_medicine')->name('add_medicine');
