@@ -1,72 +1,73 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <title>Add Medicine</title>
-
-</head>
-<body>
-
-<div class="container">
-  <h2>Add Medicine</h2>
-
-  <form action="/action_page.php">
-
-    <div class="form-group">
-      <label for="medicine">Medicine Name:</label>
-            <input type="text" class="form-control" id="text" placeholder="Enter medicine name" name="Medicine name">
-    </div>
-
-    <div class="form-group">
-      <label for="pwd">Medicine Category:</label>
-      <input type="text" class="form-control" id="pwd" placeholder="Enter medicine category" name="Medicine category">
-    </div>
-
-    <div class="form-group">
-      <label for="pwd">Purchase Price:</label>
-      <input type="number" class="form-control" id="pwd" placeholder="Enter purchase price" name="Purchase Price">
-    </div>
-
-    <div class="form-group">
-      <label for="pwd">Selling Price:</label>
-      <input type="number" class="form-control" id="pwd" placeholder="Enter selling price" name="Selling Price">
-    </div>
-
-    <div class="form-group">
-      <label for="pwd">Medicine Shelf:</label>
-      <input type="text" class="form-control" id="pwd" placeholder="Enter medicine shelf" name="Medicine Shelf">
-    </div>
-
-    <div class="form-group">
-      <label for="pwd">Quantity:</label>
-      <input type="number" class="form-control" id="pwd" placeholder="Enter quantity" name="Quantity">
-    </div>
-
-    <div class="form-group">
-      <label for="pwd">Generic Name:</label>
-      <input type="text" class="form-control" id="pwd" placeholder="Enter generic name" name="Generic Name">
-    </div>
-
-    <div class="form-group">
-      <label for="pwd">Company Name:</label>
-      <input type="text" class="form-control" id="pwd" placeholder="Enter company name" name="Company Name">
-    </div>
+@extends('Dashboard.admin_dashboard')
 
 
-    <div class="form-group">
-      <label for="pwd">Expired Date:</label>
-      <input type="date" class="form-control" id="pwd" placeholder="Enter expired date" name="expired date">
-    </div>
-
-    <div class="form-group">
-      <label for="pwd">Effects:</label>
-      <input type="text" class="form-control" id="pwd" placeholder="Enter effects" name="Effects">
-    </div>
+@section('content')
+<!-- page start-->
 
 
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
-</div>
+            <div class="container">
+                        <div class="col-md-6">
 
-</body>
-</html>
+                          <div class="card">
+                            <div class="card-header text-center">
+                              <h2>
+                                  <i class="fa fa-plus-circle"></i>
+                                  Add Medicine
+                              </h2>
+                            </div>
+                            <div class="card-body">
+                              <form  action="{{ route('create_medicine') }}" method="POST">
+                                  @csrf
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Name</label>
+                                        <input type="text" class="form-control" name="name" >
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="exampleInputEmail1">Category</label>
+                                        <input type="text" class="form-control" name="category" >
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label>Purchase Price</label>
+                                        <input type="number"  min=0 step="0.01" class="form-control" name="purchase_price">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label>Selling Price</label>
+                                        <input type="number" min=0 step="0.01" class="form-control" name="selling_price">
+                                  </div>
+
+                                  <div class="form-group">
+                                      <label>Quantity</label>
+                                      <input type="number" min=0  class="form-control" name="quantity">
+                                  </div>
+                                  <div class="form-group">
+                                      <label for="exampleInputEmail1">Medicine Shelf</label>
+                                      <input type="text" class="form-control" name="medicine_shelf" >
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Generic Name</label>
+                                      <input type="text" class="form-control" name="generic_name">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Company</label>
+                                      <input type="text" class="form-control" name="company">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Effects</label>
+                                      <input type="text" class="form-control" name="effects">
+                                  </div>
+                                  <div class="form-group">
+                                      <label>Expire Date</label>
+                                      <input type="date" class="form-control" name="expire_date">
+                                  </div>
+
+                                    <button type="submit" class="btn btn-info"> Submit</button>
+                                  </form>
+                            </div>
+                          </div>
+                        </div>
+            </div>
+        <!-- page end-->
+@endsection

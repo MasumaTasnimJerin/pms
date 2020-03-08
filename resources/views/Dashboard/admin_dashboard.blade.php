@@ -28,7 +28,7 @@
         <!-- ============================================================== -->
         <div class="dashboard-header">
             <nav class="navbar navbar-expand-lg bg-white fixed-top">
-                <a class="navbar-brand" href="#">PMS</a>
+                <a class="navbar-brand" href="{{route('home')}}">PMS</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse"
                 data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                 aria-expanded="false" aria-label="Toggle navigation">
@@ -72,7 +72,7 @@
                               <a id="navbarDropdown" class="nav-link dropdown-toggle"
                               href="#" role="button" data-toggle="dropdown" aria-haspopup="true"
                               aria-expanded="false" v-pre>
-                                  {{ Auth::user()->name }} <span class="create"></span>
+                                 <span class="create"></span>
                               </a>
 
                               <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
@@ -120,7 +120,7 @@
                                 <div class="page-breadcrumb">
                                     <nav aria-label="breadcrumb">
 
-
+@yield('content')
 
                                     </nav>
                                 </div>

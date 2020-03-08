@@ -39,22 +39,27 @@
                             <li class="nav-item">
                                 <a class="nav-link" href="#" data-toggle="collapse"
                                 aria-expanded="false" data-target="#submenu-2" aria-controls="submenu-2">
-                                <i class="fa fa-fw fa-rocket"></i>Medicine</a>
+                                <i class="fas fa-capsules"></i>Medicine</a>
                                 <div id="submenu-2" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/general.html">Medicine List</a>
+
+                                            <a class="nav-link" href="{{route('medicine_list')}}"> Medicine list</a>
+
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/carousel.html">Add Medicine</a>
+
+                                            <a class="nav-link" href="{{route('add_medicine')}}">Add Medicine</a>
+                                        </li>
+
+                                        <li class="nav-item">
+                                          <a class="nav-link" href="{{route('medicine_category')}}"> Medicine Category</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/general.html">Medicine Catagory</a>
+                                            <a class="nav-link" href="{{route('add_category')}}">Add Category</a>
                                         </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="pages/carousel.html">Add Catagory</a>
-                                        </li>
+
                                     </ul>
                                 </div>
                             </li>
@@ -69,10 +74,10 @@
                                 <div id="submenu-3" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/form-elements.html">Add Purchase</a>
+                                            <a class="nav-link" href="{{route('add_purchase')}}">Add Purchase</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/form-validation.html">Manage Purchase</a>
+                                          <a class="nav-link" href="{{route('manage_purchase')}}"> Manage Purchase</a>
                                         </li>
                                     </ul>
                                 </div>
@@ -106,10 +111,10 @@
                                 <div id="submenu-4" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/form-elements.html">Add Supplier</a>
+                                          <a class="nav-link" href="{{route('add_supplier')}}">Add Supplier</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="pages/form-validation.html">Supplier Lists</a>
+                                          <a class="nav-link" href="{{route('supplier_list')}}"> Supplier List</a>
                                         </li>
                                     </ul>
                                 </div>
