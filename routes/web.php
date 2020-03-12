@@ -26,7 +26,7 @@ Route::get('/add_medicine','MedicineController@add_medicine')->name('add_medicin
 Route::post('/add_medicine','MedicineController@create_medicine')->name('create_medicine');
 Route::get('/medicine_list', 'MedicineController@medicine_list')->name('medicine_list');
 
-//Category
+//Medicine Category
 Route::get('/add_category','CategoryController@add_category')->name('add_category');
 Route::post('/add_category','CategoryController@create_category')->name('create_category');
 Route::get('/medicine_category', 'CategoryController@medicine_category')->name('medicine_category');
@@ -41,3 +41,15 @@ Route::get('/manage_purchase','PurchaseController@manage_purchase')->name('manag
 Route::get('/add_supplier','SupplierController@add_supplier')->name('add_supplier');
 Route::post('/add_supplier','SupplierController@create_supplier')->name('create_supplier');
 Route::get('/supplier_list','SupplierController@supplier_list')->name('supplier_list');
+
+//Stock
+Route::get('/add_stock','StockController@add_stock')->name('add_stock');
+Route::post('/add_stock','StockController@create_stock')->name('create_stock');
+
+//Users Role
+Route::get('/add_role','RoleController@add_role')->name('add_role');
+Route::post('/add_role','RoleController@create_role')->name('create_role');
+Route::get('/role_list','RoleController@role_list')->name('role_list');
+
+//User List
+Route::get('/user_list','UserController@user_list')->name('user_list');

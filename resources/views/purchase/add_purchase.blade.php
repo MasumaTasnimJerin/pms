@@ -13,6 +13,9 @@
                                   <i class="fa fa-plus-circle"></i>
                                   Add Purchase
                               </h2>
+                              @if(Session::has('message'))
+                              <p class="alert alert-success">{{Session::get('message')}}</p>
+                              @endif
                             </div>
                             <div class="card-body">
 
@@ -35,7 +38,13 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Item Information</label>
-                                        <input type="text" class="form-control" name="item_information" >
+                                        <select class="form-control" name="medicine_id">
+                                         <option value="">Select a item information</option>
+                                    @foreach($medicines as $medicine)
+                                         <option value="{{$medicine->id}}">{{$medicine->name}}</option>
+                                    @endforeach
+                                     </select>
+
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Batch Id</label>

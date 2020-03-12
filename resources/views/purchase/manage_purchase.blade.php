@@ -1,39 +1,57 @@
 @extends('Dashboard.admin_dashboard')
+
 @section('content')
-<div class="card">
-                                <h5 class="card-header">Manage Purchase</h5>
-                                <div class="card-body">
-                                    <div class="table-responsive ">
-                                        <table class="table">
-                                            <thead>
-                                                <tr>
-                                                    <th scope="col">#</th>
-                                                    <th scope="col">SL</th>
-                                                    <th scope="col">Invoice No</th>
-                                                    <th scope="col">Purchase ID</th>
-                                                    <th scope="col">Manufacturer Name</th>
-                                                    <th scope="col">Purchase Date</th>
-                                                    <th scope="col">Totall Amount</th>
-                                                    <th scope="col">Action</th>
 
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr>
-                                                    <th scope="row">1</th>
-                                                    <td>123</td>
-                                                    <td>1244</td>
-                                                    <td>@234</td>
-                                                </tr>
+<div class="container">
+  <div class="row">
+    <div class="col-auto">
 
-                                                <tr>
-                                                    <th scope="row">3</th>
-                                                    <td colspan="2">Larry the Bird</td>
-                                                    <td>@twitter</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
+      <div class="card">
+        <div class="card-header text-center">
+          <h3>Manage Purchase </h3>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped">
+            <thead class="bg-info text-center">
+              <tr>
+                <th>Id</th>
+                <th>Manufacturer</th>
+                <th>Invoice No</th>
+                  <th>Payment </th>
+                    <th>Batch Id</th>
+                      <th>Expire Date  </th>
+                       <th>Stock</th>
+                        <th>Quantity</th>
+                        <th>Manufacturer Price</th>
+                         <th>Total </th>
+              </tr>
+            </thead>
+            <tbody class="text-center">
+
+              @foreach($purchases as $purchase)
+              <tr>
+                <td>{{$purchase->id}}</td>
+                <td>{{$purchase->manufacturer}}</td>
+                <td>{{$purchase->invoice_no}}</td>
+                <td>{{$purchase->payment}}</td>
+                  <td>{{$purchase->batch_id}}</td>
+                      <td>{{$purchase->expire_date}}</td>
+                        <td>{{$purchase->stock}}</td>
+                          <td>{{$purchase->quantity}}</td>
+                            <td>{{$purchase->manufacturer_price}}</td>
+                              <td>{{$purchase->total}}</td>
+
+              </tr>
+              @endforeach
+            </tbody>
+          </table>
+        </div>
+
+      </div>
+
+    </div>
+
+
+</div>
+
 @endsection

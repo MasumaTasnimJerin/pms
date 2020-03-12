@@ -13,6 +13,9 @@
                                   <i class="fa fa-plus-circle"></i>
                                   Add Category
                               </h2>
+                              @if(Session::has('message'))
+                              <p class="alert alert-success">{{Session::get('message')}}</p>
+                              @endif
                             </div>
                             <div class="card-body">
 

@@ -10,7 +10,7 @@ class Purchase extends Model
       'manufacturer',
        'invoice_no',
         'payment',
-         'item_information',
+         'medicine_id',
           'batch_id',
           'expire_date',
            'stock',

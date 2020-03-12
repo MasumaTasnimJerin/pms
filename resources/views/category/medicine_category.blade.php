@@ -8,7 +8,7 @@
 
       <div class="card">
         <div class="card-header text-center">
-          <h3>Supplier List </h3>
+          <h3>Medicine Category </h3>
         </div>
         <div class="card-body">
           <table class="table table-striped">
@@ -16,18 +16,16 @@
               <tr>
                 <th>Id</th>
                 <th>Name</th>
-                  <th>Phone</th>
-                    <th>Address</th>
+                <th>Description</th>
               </tr>
             </thead>
             <tbody class="text-center">
 
-              @foreach($suppliers as $supplier)
+              @foreach($categories as $category)
               <tr>
-                <td>{{$supplier->id}}</td>
-                <td>{{$supplier->name}}</td>
-                <td>{{$supplier->phone}}</td>
-                  <td>{{$supplier->address}}</td>
+                <td>{{$category->id}}</td>
+                <td>{{$category->name}}</td>
+                <td>{{$category->description}}</td>
               </tr>
               @endforeach
             </tbody>

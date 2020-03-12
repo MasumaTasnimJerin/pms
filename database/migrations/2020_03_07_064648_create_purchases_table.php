@@ -18,8 +18,8 @@ class CreatePurchasesTable extends Migration
             $table->string('manufacturer');
             $table->string('invoice_no');
             $table->decimal('payment');
-            $table->string('item_information');
-            $table->unsignedBigInteger('batch_id');
+            $table->string('batch_id');
+            $table->unsignedBigInteger('medicine_id');
             $table->dateTime('expire_date');
             $table->string('stock');
             $table->string('quantity');

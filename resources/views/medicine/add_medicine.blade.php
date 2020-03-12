@@ -2,6 +2,7 @@
 
 
 @section('content')
+
 <!-- page start-->
 
 
@@ -14,6 +15,9 @@
                                   <i class="fa fa-plus-circle"></i>
                                   Add Medicine
                               </h2>
+                              @if(Session::has('message'))
+                              <p class="alert alert-success">{{Session::get('message')}}</p>
+                              @endif
                             </div>
                             <div class="card-body">
                               <form  action="{{ route('create_medicine') }}" method="POST">
@@ -22,20 +26,28 @@
                                         <label for="exampleInputEmail1">Name</label>
                                         <input type="text" class="form-control" name="name" >
                                     </div>
+
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Category</label>
-                                        <input type="text" class="form-control" name="category" >
+
+                                           <select class="form-control" name="category">
+                                            <option value="">Select a category</option>
+                                            @foreach($categories as $category)
+                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                           @endforeach
+                                        </select>
+
                                     </div>
 
 
                                     <div class="form-group">
                                         <label>Purchase Price</label>
-                                        <input type="number"  min=0 step="0.01" class="form-control" name="purchase_price">
+                                        <input type="number"  min=0 class="form-control" name="purchase_price">
                                     </div>
 
                                     <div class="form-group">
                                         <label>Selling Price</label>
-                                        <input type="number" min=0 step="0.01" class="form-control" name="selling_price">
+                                        <input type="number" min=0  class="form-control" name="selling_price">
                                   </div>
 
                                   <div class="form-group">

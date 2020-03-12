@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Medicine;
+use App\Category;
 class MedicineController extends Controller
 {
   public function add_medicine()
   {
-    return view('medicine.add_medicine');
+    $categories = Category::all();
+    return view('medicine.add_medicine',compact('categories'));
 
   }
 
@@ -27,7 +29,8 @@ class MedicineController extends Controller
             'effects'=>$request-> effects,
             'expire_date'=>$request-> expire_date,
     ]);
-    return back()->with('success','Medicine Added Sucessfully');
+    return redirect()->route('add_medicine')->with('message',' Medicine Created Successfully.');
+
 
   }
 

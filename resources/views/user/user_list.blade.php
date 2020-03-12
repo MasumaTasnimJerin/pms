@@ -8,7 +8,7 @@
 
       <div class="card">
         <div class="card-header text-center">
-          <h3>Supplier List </h3>
+          <h3>User List </h3>
         </div>
         <div class="card-body">
           <table class="table table-striped">
@@ -16,18 +16,16 @@
               <tr>
                 <th>Id</th>
                 <th>Name</th>
-                  <th>Phone</th>
-                    <th>Address</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody class="text-center">
 
-              @foreach($suppliers as $supplier)
+              @foreach($users as $user)
               <tr>
-                <td>{{$supplier->id}}</td>
-                <td>{{$supplier->name}}</td>
-                <td>{{$supplier->phone}}</td>
-                  <td>{{$supplier->address}}</td>
+                <td>{{$user->id}}</td>
+                <td>{{$user->name}}</td>
               </tr>
               @endforeach
             </tbody>

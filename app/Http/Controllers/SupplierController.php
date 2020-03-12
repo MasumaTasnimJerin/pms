@@ -19,18 +19,14 @@ class SupplierController extends Controller
       'name' =>$request-> name,
        'phone'=>$request-> phone,
         'address'=>$request-> address,
-         'previous_balance'=>$request-> previous_balance,
-
     ]);
 
-
-
-    return back()->with('success','Supplier Added Sucessfully');
+    return redirect()->route('add_supplier')->with('message',' Supplier Created Successfully.');
 }
 public function supplier_list()
 {
 
-  $supplier = Supplier::all();
-    return view('supplier.supplier_list',compact('supplier'));
+  $suppliers = Supplier::all();
+    return view('supplier.supplier_list',compact('suppliers'));
 }
 }

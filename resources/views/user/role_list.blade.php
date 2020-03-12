@@ -8,26 +8,24 @@
 
       <div class="card">
         <div class="card-header text-center">
-          <h3>Supplier List </h3>
+          <h3>Role List </h3>
         </div>
         <div class="card-body">
           <table class="table table-striped">
             <thead class="bg-info text-center">
               <tr>
-                <th>Id</th>
                 <th>Name</th>
-                  <th>Phone</th>
-                    <th>Address</th>
+                <th>Description</th>
+                <th></th>
+                <th></th>
               </tr>
             </thead>
             <tbody class="text-center">
 
-              @foreach($suppliers as $supplier)
+              @foreach($roles as $role)
               <tr>
-                <td>{{$supplier->id}}</td>
-                <td>{{$supplier->name}}</td>
-                <td>{{$supplier->phone}}</td>
-                  <td>{{$supplier->address}}</td>
+                <td>{{$role->name}}</td>
+                <td>{{$role->description}}</td>
               </tr>
               @endforeach
             </tbody>

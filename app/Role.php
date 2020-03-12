@@ -4,11 +4,10 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Supplier extends Model
+class Role extends Model
 {
   protected $fillable = [
       'name',
-       'phone',
-        'address',
+       'description',
   ];
 }

@@ -21,13 +21,13 @@
                                     <ul class="nav flex-column">
 
                                         <li class="nav-item">
-                                            <a class="nav-link" href="dashboard-finance.html">User List</a>
+                                            <a class="nav-link" href="{{route('user_list')}}">User List</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="dashboard-sales.html">Add User Role</a>
+                                            <a class="nav-link" href="{{route('add_role')}}">Add User Role</a>
                                         </li>
                                         <li class="nav-item">
-                                            <a class="nav-link" href="dashboard-sales.html">Role List</a>
+                                            <a class="nav-link" href="{{route('role_list')}}">Role List</a>
                                         </li>
 
                                     </ul>
@@ -53,8 +53,21 @@
                                             <a class="nav-link" href="{{route('add_medicine')}}">Add Medicine</a>
                                         </li>
 
+                                                                  </ul>
+                                </div>
+                            </li>
+
+                            <!-- Medicine Category  -->
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="#" data-toggle="collapse"
+                                aria-expanded="false" data-target="#submenu-3" aria-controls="submenu-3">
+                                <i class="fas fa-capsules"></i>Medicine Category </a>
+                                <div id="submenu-3" class="collapse submenu" style="">
+                                    <ul class="nav flex-column">
+
                                         <li class="nav-item">
-                                          <a class="nav-link" href="{{route('medicine_category')}}"> Medicine Category</a>
+                                          <a class="nav-link" href="{{route('medicine_category')}}">Category List</a>
                                         </li>
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{route('add_category')}}">Add Category</a>
@@ -69,9 +82,9 @@
 
                             <li class="nav-item ">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-                                data-target="#submenu-3" aria-controls="submenu-3">
+                                data-target="#submenu-4" aria-controls="submenu-4">
                                 <i class="fab fa-fw fa-wpforms"></i>Purchase </a>
-                                <div id="submenu-3" class="collapse submenu" style="">
+                                <div id="submenu-4" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" href="{{route('add_purchase')}}">Add Purchase</a>
@@ -106,9 +119,9 @@
 
                             <li class="nav-item ">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-                                data-target="#submenu-4" aria-controls="submenu-4">
+                                data-target="#submenu-5" aria-controls="submenu-5">
                                 <i class="fab fa-fw fa-wpforms"></i>Suppliers </a>
-                                <div id="submenu-4" class="collapse submenu" style="">
+                                <div id="submenu-5" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                           <a class="nav-link" href="{{route('add_supplier')}}">Add Supplier</a>
@@ -123,9 +136,9 @@
                             <!-- Reports -->
                             <li class="nav-item ">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-                                data-target="#submenu-5" aria-controls="submenu-5">
+                                data-target="#submenu-6" aria-controls="submenu-6">
                                 <i class="fab fa-fw fa-wpforms"></i>Reports </a>
-                                <div id="submenu-5" class="collapse submenu" style="">
+                                <div id="submenu-6" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" href="pages/form-elements.html">Sales Report</a>

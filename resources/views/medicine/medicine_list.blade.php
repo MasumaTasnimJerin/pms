@@ -14,6 +14,7 @@
           <table class="table table-striped">
             <thead class="bg-info text-center">
               <tr>
+                <th>Id</th>
                 <th>Name</th>
                 <th>Category</th>
                 <th>Purchase Price</th>
@@ -32,6 +33,7 @@
 
               @foreach($medicines as $medicine)
               <tr>
+                <td>{{$medicine->id}}</td>
                 <td>{{$medicine->name}}</td>
                 <td>{{$medicine->category}}</td>
                 <td>{{$medicine->purchase_price}}</td>

@@ -10,7 +10,7 @@ class CategoryController extends Controller
 {
   public function add_category()
   {
-    return view('medicine.add_category');
+    return view('category.add_category');
 
   }
   public function create_category(Request $request)
@@ -19,16 +19,14 @@ class CategoryController extends Controller
       'name'=>$request->name,
        'description'=>$request->description,
     ]);
-
-
-  return view('medicine.add_category');
+    return redirect()->route('add_category')->with('message',' Category Created Successfully.');
 
   }
   //Medicine Category
   public function medicine_category()
   {
 
-    $medicine = Medicine::all();
-      return view('medicine.medicine_category',compact('medicine'));
+    $categories = Category::all();
+      return view('category.medicine_category',compact('categories'));
   }
 }
