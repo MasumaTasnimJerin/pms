@@ -17,7 +17,6 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th></th>
-                <th></th>
               </tr>
             </thead>
             <tbody class="text-center">
@@ -26,6 +25,7 @@
               <tr>
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
+                <td><button type="submit" class="btn btn-info"> Assign Role</button></td>
               </tr>
               @endforeach
             </tbody>

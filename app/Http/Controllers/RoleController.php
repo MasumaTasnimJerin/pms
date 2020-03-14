@@ -28,4 +28,25 @@ public function role_list()
  $roles = Role::all();
  return view('user.role_list',compact('roles'));
 }
+//Role Update
+public function edit($id)
+{
+
+  $role = Role::find($id);
+
+    return view('user.role_update',compact('role'));
+}
+public function update(Request $request,$id)
+{
+
+    $role=Role::find($id);
+
+    $role->update([
+        'name' =>$request->name,
+        'description' =>$request->description,
+
+    ]);
+    return redirect()->route('role_list')->with('message','Role Updated Successfully.');
+
+}
 }

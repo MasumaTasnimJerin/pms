@@ -26,8 +26,7 @@
                 <th>Effects</th>
                 <th>Expire Date</th>
                 <th></th>
-                <th></th>
-              </tr>
+                </tr>
             </thead>
             <tbody class="text-center">
 
@@ -44,6 +43,7 @@
                 <td>{{$medicine->company}}</td>
                 <td>{{$medicine->effects}}</td>
                 <td>{{$medicine->expire_date}}</td>
+                <td><a href="{{route('medicine.edit',$medicine->id)}}" class="btn btn-info">Update</a></td>
               </tr>
               @endforeach
             </tbody>

@@ -41,4 +41,32 @@ class MedicineController extends Controller
     $medicines = Medicine::all();
       return view('medicine.medicine_list',compact('medicines'));
   }
+  //Update Medicine
+  public function edit($id)
+  {
+  $categories = Category::all();
+    $medicine = Medicine::find($id);
+      return view('medicine.medicine_update',compact('medicine','categories'));
+  }
+  public function update(Request $request,$id)
+  {
+
+      $medicine=Medicine::find($id);
+
+      $medicine->update([
+
+          'name' =>$request->name,
+          'category'=>$request-> category,
+           'purchase_price'=>$request-> purchase_price,
+           'selling_price'=>$request-> selling_price,
+            'quantity'=>$request-> quantity,
+             'medicine_shelf'=>$request-> medicine_shelf,
+             'generic_name'=>$request-> generic_name,
+              'company'=>$request-> company,
+               'effects'=>$request-> effects,
+               'expire_date'=>$request-> expire_date,
+      ]);
+      return redirect()->route('medicine_list')->with('message',' Medicine Updated Successfully.');
+
+  }
 }

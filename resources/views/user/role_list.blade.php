@@ -17,7 +17,6 @@
                 <th>Name</th>
                 <th>Description</th>
                 <th></th>
-                <th></th>
               </tr>
             </thead>
             <tbody class="text-center">
@@ -26,6 +25,8 @@
               <tr>
                 <td>{{$role->name}}</td>
                 <td>{{$role->description}}</td>
+                <td><a href="{{route('role.edit',$role->id)}}" class="btn btn-info">Update</a></td>
+
               </tr>
               @endforeach
             </tbody>

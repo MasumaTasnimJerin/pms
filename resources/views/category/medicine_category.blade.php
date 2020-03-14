@@ -17,6 +17,7 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Description</th>
+                <th></th>
               </tr>
             </thead>
             <tbody class="text-center">
@@ -26,6 +27,7 @@
                 <td>{{$category->id}}</td>
                 <td>{{$category->name}}</td>
                 <td>{{$category->description}}</td>
+                <td><a href="{{route('category.edit',$category->id)}}" class="btn btn-info">Update</a></td>
               </tr>
               @endforeach
             </tbody>

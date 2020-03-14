@@ -18,7 +18,8 @@
                 <th>Name</th>
                   <th>Phone</th>
                     <th>Address</th>
-              </tr>
+                    <th></th>
+                  </tr>
             </thead>
             <tbody class="text-center">
 
@@ -28,6 +29,8 @@
                 <td>{{$supplier->name}}</td>
                 <td>{{$supplier->phone}}</td>
                   <td>{{$supplier->address}}</td>
+                  <td><a href="{{route('supplier.edit',$supplier->id)}}" class="btn btn-info">Update</a></td>
+
               </tr>
               @endforeach
             </tbody>
