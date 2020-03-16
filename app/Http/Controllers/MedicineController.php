@@ -69,4 +69,9 @@ class MedicineController extends Controller
       return redirect()->route('medicine_list')->with('message',' Medicine Updated Successfully.');
 
   }
+  public function delete($id){
+    $medicineDelete = Medicine::find($id);
+    $medicineDelete->delete();
+    return redirect()->route('medicine_list')->with('message','Medicine Deleted Successfully.');
+  }
 }

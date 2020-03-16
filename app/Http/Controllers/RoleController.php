@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Role;
+use App\User;
 
 
 class RoleController extends Controller
@@ -48,5 +49,10 @@ public function update(Request $request,$id)
     ]);
     return redirect()->route('role_list')->with('message','Role Updated Successfully.');
 
+}
+public function delete($id){
+  $roleDelete = Role::find($id);
+  $roleDelete->delete();
+  return redirect()->route('role_list')->with('message','Role Deleted Successfully.');
 }
 }

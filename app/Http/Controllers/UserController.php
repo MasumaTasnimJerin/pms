@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
 use App\Role;
+use App\User;
+
 
 class UserController extends Controller
 {
@@ -15,23 +16,20 @@ class UserController extends Controller
     $users = User::all();
       return view('user.user_list',compact('users'));
   }
-  //User Update
-  public function edit($id)
-  {
-
-    $role = Role::find($id);
-
-      return view('user.role_update',compact('role'));
-  }
-  public function update(Request $request,$id)
-  {
-
-      $role=Role::find($id);
-
-      $role->update([
-          'name' =>$request->name,
+//user Update
+public function user_update($user)
+{
+     $roles = Role::all();
+     $user = User::findOrFail($user);
+      return view('user.user_update')->with([
+        'user' => $user,
+        'roles'=> $roles
       ]);
-      return redirect()->route('role_list')->with('message',' Role Updated Successfully.');
-
-  }
+}
+public function update(Request $request,User $user)
+{
+ $user->roles()->sync($request->roles);
+   return redirect()->route('user_list')
+             ->with('success','User updated successfully.');
+}
 }

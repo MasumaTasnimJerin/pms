@@ -16,7 +16,9 @@
               <tr>
                 <th>Id</th>
                 <th>Name</th>
-                <th></th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody class="text-center">
@@ -25,7 +27,9 @@
               <tr>
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
-                <td><button type="submit" class="btn btn-info"> Assign Role</button></td>
+                <td>{{$user->email}}</td>
+                <td>{{implode(',',$user->roles()->get()->pluck('name')->toArray())}}</td>
+              <td><a href="{{route('user_update',$user->id)}}" class="btn btn-info">Assign Role</a></td>
               </tr>
               @endforeach
             </tbody>

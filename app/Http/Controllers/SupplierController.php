@@ -51,4 +51,9 @@ public function update(Request $request,$id)
     return redirect()->route('supplier_list')->with('message',' Supplier Updated Successfully.');
 
 }
+public function delete($id){
+  $supplierDelete = Supplier::find($id);
+  $supplierDelete->delete();
+  return redirect()->route('supplier_list')->with('message','Supplier Deleted Successfully.');
+}
 }

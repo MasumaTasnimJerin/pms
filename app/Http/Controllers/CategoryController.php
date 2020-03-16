@@ -47,7 +47,14 @@ class CategoryController extends Controller
           'description' =>$request->description,
 
       ]);
-      return redirect()->route('medicine_category')->with('message',' Update Created Successfully.');
+      return redirect()->route('medicine_category')->with('message',' Category Updated Successfully.');
 
   }
+  public function delete($id){
+    $categoryDelete = Category::find($id);
+    $categoryDelete->delete();
+    return redirect()->route('medicine_category')->with('message','Category Deleted Successfully.');
+  }
+
+
 }

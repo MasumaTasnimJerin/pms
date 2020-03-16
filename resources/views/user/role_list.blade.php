@@ -12,7 +12,7 @@
         </div>
         <div class="card-body">
           <table class="table table-striped">
-            <thead class="bg-info text-center">
+            <thead class="table-danger">
               <tr>
                 <th>Name</th>
                 <th>Description</th>
@@ -25,8 +25,8 @@
               <tr>
                 <td>{{$role->name}}</td>
                 <td>{{$role->description}}</td>
-                <td><a href="{{route('role.edit',$role->id)}}" class="btn btn-info">Update</a></td>
-
+                <td><a href="{{route('role.edit',$role->id)}}" class="btn btn-success">Update</a>
+                <a href="{{route('role.delete',$role->id)}}" class="btn btn-danger">Delete</a></td>
               </tr>
               @endforeach
             </tbody>
