@@ -18,4 +18,13 @@ class Medicine extends Model
             'effects',
             'expire_date',
   ];
+
+    protected $casts= [
+    'expire_date'=>'datetime',
+  ];
+
+  public function categoryTable(){
+  return  $this->belongsTo(Category::class,'category','id');
+  }
+
 }

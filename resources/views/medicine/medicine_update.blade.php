@@ -28,12 +28,17 @@
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Category</label>
 
+                                        <label for="exampleInputEmail1">Category</label>
                                            <select class="form-control" name="category">
-                                            <option value="{{$medicine->category}}">Select a category</option>
+
                                             @foreach($categories as $category)
-                                            <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @if($category->id==$medicine->category)
+
+                                            <option value="{{$category->id}}" selected >{{$category->name}}</option>
+                                            @else
+                                              <option value="{{$category->id}}">{{$category->name}}</option>
+                                            @endif
                                            @endforeach
                                         </select>
 
@@ -46,7 +51,7 @@
 
                                     <div class="form-group">
                                         <label>Selling Price</label>
-                                        <input type="number" min=0  class="form-control" name="selling_Price" value="{{$medicine->selling_price}}">
+                                        <input type="number" min=0  class="form-control" name="selling_price" value="{{$medicine->selling_price}}">
                                   </div>
 
                                   <div class="form-group">
@@ -71,7 +76,9 @@
                                   </div>
                                   <div class="form-group">
                                       <label>Expire Date</label>
-                                      <input type="date" class="form-control" name="expire date"value="{{$medicine->expire_date}}">
+
+
+                                      <input type="date" class="form-control" name="expire date" value="{{$medicine->expire_date->format('Y-m-d')}}">
                                   </div>
 
                                     <button type="submit" class="btn btn-info"> Submit</button>

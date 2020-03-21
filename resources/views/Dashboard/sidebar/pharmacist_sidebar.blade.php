@@ -1,7 +1,7 @@
 <div class="nav-left-sidebar sidebar-dark">
             <div class="menu-list">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="d-xl-none d-lg-none" href="#">Dashboard</a>
+                    <a class="d-xl-none d-lg-none" href="#">Pharmacist Dashboard</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                      data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -9,7 +9,7 @@
                     <div class="collapse navbar-collapse" id="navbarNav">
                         <ul class="navbar-nav flex-column">
                             <li class="nav-divider">
-                                Dashboard
+                                Pharmacist Dashboard
                             </li>
                             <li class="nav-item ">
 
@@ -44,10 +44,10 @@
                                 <div id="submenu-1" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
-                                          <a class="nav-link" href="">Add Expense</a>
+                                          <a class="nav-link" href="{{route('add_expense')}}">Add Expense</a>
                                         </li>
                                         <li class="nav-item">
-                                          <a class="nav-link" href=""> Expenses List</a>
+                                          <a class="nav-link" href=""> Expense List</a>
                                         </li>
                                     </ul>
                                 </div>

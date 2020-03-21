@@ -18,12 +18,25 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::group(['middleware'=>['auth']],function(){
+  Route::group(['middleware'=>['_admin']],function(){
+    Route::get('/admin_dashboard', 'DashboardController@admin_dashboard')->name('admin_dashboard');
+  });
+});
+
+Route::group(['middleware'=>['auth']],function(){
+  Route::group(['middleware'=>['_pharmacist']],function(){
+    Route::get('/pharmacist_dashboard', 'DashboardController@pharmacist_dashboard')->name('pharmacist_dashboard');
+  });
+});
 
 //Dashboard
-Route::get('/admin_dashboard','DashboardController@admin_dashboard')->name('admin_dashboard');
-Route::get('/pharmacist_dashboard','DashboardController@pharmacist_dashboard')->name('pharmacist_dashboard');
+//Route::get('/admin_dashboard','DashboardController@admin_dashboard')->name('admin_dashboard');
+//Route::get('/pharmacist_dashboard','DashboardController@pharmacist_dashboard')->name('pharmacist_dashboard');
 
+Route::group(['middleware'=>'auth'],function(){
 //Medicine
+
 Route::get('/add_medicine','MedicineController@add_medicine')->name('add_medicine');
 Route::post('/add_medicine','MedicineController@create_medicine')->name('create_medicine');
 Route::get('/medicine_list', 'MedicineController@medicine_list')->name('medicine_list');
@@ -72,3 +85,7 @@ Route::get('/role_delete/{id}', 'RoleController@delete')->name('role.delete');
 Route::get('/user_list','UserController@user_list')->name('user_list');
 Route::get('/user_update/{user}', 'UserController@user_update')->name('user_update');
 Route::post('/user_update/{user}', 'UserController@update')->name('update');
+});
+//Expense
+Route::get('/add_expense','ExpenseController@add_expense')->name('add_expense');
+Route::post('/add_expense','ExpenseController@create_expense')->name('create_expense');

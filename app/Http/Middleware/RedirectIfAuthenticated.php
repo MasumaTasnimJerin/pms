@@ -1,8 +1,6 @@
 <?php
 
 namespace App\Http\Middleware;
-
-use App\Providers\RouteServiceProvider;
 use Closure;
 use Illuminate\Support\Facades\Auth;
 
@@ -16,12 +14,25 @@ class RedirectIfAuthenticated
      * @param  string|null  $guard
      * @return mixed
      */
-    public function handle($request, Closure $next, $guard = null)
-    {
-        if (Auth::guard($guard)->check()) {
-            return redirect(RouteServiceProvider::HOME);
-        }
+     public function handle($request, Closure $next, $guard = null)
+     {
 
-        return $next($request);
-    }
+       if (Auth::guard($guard)->check()) {
+           $userRoles = Auth::user()->roles->pluck('name');
+
+
+           if($userRoles->contains('Admin')){
+             return redirect('admin_dashboard');
+           }
+
+           elseif($userRoles->contains('Pharmacist')){
+             return redirect('pharmacist_dashboard');
+           }
+
+           else{
+             return redirect('/home');
+           }
+         }
+         return $next($request);
+     }
 }

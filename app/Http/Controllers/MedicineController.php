@@ -17,18 +17,21 @@ class MedicineController extends Controller
 
   public function create_medicine(Request $request)
   {
-    Medicine::create([
-      'name' =>$request-> name,
-       'category'=>$request-> category,
-        'purchase_price'=>$request-> purchase_price,
-        'selling_price'=>$request-> selling_price,
-         'quantity'=>$request-> quantity,
-          'medicine_shelf'=>$request-> medicine_shelf,
-          'generic_name'=>$request-> generic_name,
-           'company'=>$request-> company,
-            'effects'=>$request-> effects,
-            'expire_date'=>$request-> expire_date,
-    ]);
+
+    $data =[
+      'name' =>$request->name,
+       'category'=>$request->category,
+        'purchase_price'=>$request->purchase_price,
+        'selling_price'=>$request->selling_price,
+         'quantity'=>$request->quantity,
+          'medicine_shelf'=>$request->medicine_shelf,
+          'generic_name'=>$request->generic_name,
+           'company'=>$request->company,
+            'effects'=>$request->effects,
+            'expire_date'=>$request->expire_date,
+    ];
+
+    Medicine::create($data);
     return redirect()->route('add_medicine')->with('message',' Medicine Created Successfully.');
 
 
@@ -38,7 +41,8 @@ class MedicineController extends Controller
   //Medicine List
   public function medicine_list()
   {
-    $medicines = Medicine::all();
+    $medicines = Medicine::with('categoryTable')->get();
+
       return view('medicine.medicine_list',compact('medicines'));
   }
   //Update Medicine
@@ -50,22 +54,22 @@ class MedicineController extends Controller
   }
   public function update(Request $request,$id)
   {
-
-      $medicine=Medicine::find($id);
-
-      $medicine->update([
-
+      $data =[
           'name' =>$request->name,
           'category'=>$request-> category,
            'purchase_price'=>$request-> purchase_price,
            'selling_price'=>$request-> selling_price,
-            'quantity'=>$request-> quantity,
-             'medicine_shelf'=>$request-> medicine_shelf,
-             'generic_name'=>$request-> generic_name,
-              'company'=>$request-> company,
-               'effects'=>$request-> effects,
-               'expire_date'=>$request-> expire_date,
-      ]);
+          'quantity'=>$request-> quantity,
+           'medicine_shelf'=>$request-> medicine_shelf,
+           'generic_name'=>$request-> generic_name,
+            'company'=>$request-> company,
+             'effects'=>$request-> effects,
+             'expire_date'=>$request-> expire_date,
+      ];
+
+      $medicine=Medicine::find($id);
+
+      $medicine->update($data);
       return redirect()->route('medicine_list')->with('message',' Medicine Updated Successfully.');
 
   }
