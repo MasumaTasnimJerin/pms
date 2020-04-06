@@ -32,7 +32,7 @@
                 <td>{{$supplier->name}}</td>
                 <td>{{$supplier->phone}}</td>
                   <td>{{$supplier->address}}</td>
-                  <td><a href="{{route('supplier.edit',$supplier->id)}}" class="btn btn-success">Update</a>
+                  <td><a href="{{route('supplier.edit',$supplier->id)}}" class="btn btn-primary">Update</a>
                   <a href="{{route('supplier.delete',$supplier->id)}}" class="btn btn-danger">Delete</a></td>
 
 

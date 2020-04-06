@@ -18,12 +18,16 @@
     @endif
     <form method="POST" action="{{ route('update', $user) }}">
       @csrf
-          @foreach($roles as $role)
+
           <div class='form-check'>
-            <input type="checkbox" name="roles[]" value="{{$role->id}}">
-            <leble>{{$role->name}}</label>
+            <input type="checkbox" name="role" value="admin" @if($user->role === 'admin') checked @endif>
+            <leble>Admin</label>
           </div>
-          @endforeach
+          <div class='form-check'>
+            <input type="checkbox" name="role" value="pharmacist"  @if($user->role === 'pharmacist') checked @endif>
+            <leble>Pharmacist</label>
+          </div>
+
 
           <button type="submit" class="btn btn-primary">Update</button>
       </form>

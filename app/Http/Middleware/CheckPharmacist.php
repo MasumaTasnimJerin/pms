@@ -16,8 +16,8 @@ class CheckPharmacist
      */
      public function handle($request, Closure $next)
      {
-       $userRoles = Auth::user()->roles->pluck('name');
-   if($userRoles->contains('Pharmacist')){
+       $userRoles = Auth::user()->role;
+   if($userRoles==='pharmacist'){
    return $next($request);
    }
    return redirect('login');

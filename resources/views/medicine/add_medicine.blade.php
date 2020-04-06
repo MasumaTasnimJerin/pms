@@ -11,13 +11,25 @@
 
                           <div class="card">
                             <div class="card-header text-center">
-                              <h2>
+                              <h1>
                                   <i class="fa fa-plus-circle"></i>
                                   Add Medicine
                               </h2>
                               @if(Session::has('message'))
                               <p class="alert alert-success">{{Session::get('message')}}</p>
                               @endif
+    @if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
+
+
+
                             </div>
                             <div class="card-body">
                               <form  action="{{ route('create_medicine') }}" method="POST">
@@ -38,8 +50,6 @@
                                         </select>
 
                                     </div>
-
-
                                     <div class="form-group">
                                         <label>Purchase Price</label>
                                         <input type="number"  min=0 class="form-control" name="purchase_price">
@@ -62,6 +72,7 @@
                                       <label>Generic Name</label>
                                       <input type="text" class="form-control" name="generic_name">
                                   </div>
+
                                   <div class="form-group">
                                       <label>Company</label>
                                       <input type="text" class="form-control" name="company">
@@ -70,6 +81,7 @@
                                       <label>Effects</label>
                                       <input type="text" class="form-control" name="effects">
                                   </div>
+
                                   <div class="form-group">
                                       <label>Expire Date</label>
                                       <input type="date" class="form-control" name="expire_date">

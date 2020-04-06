@@ -15,8 +15,8 @@ class CheckAdmin
      */
      public function handle($request, Closure $next)
      {
-       $userRoles = Auth::user()->roles->pluck('name');
-   if($userRoles->contains('Admin')){
+       $userRoles = Auth::user()->role;
+   if($userRoles === 'admin' or $userRoles==='pharmacist'){
    return $next($request);
    }
    return redirect('login');

@@ -15,6 +15,11 @@ class SupplierController extends Controller
   }
   public function create_supplier(Request $request)
   {
+    $request->validate([
+    'name'=> 'required',
+    'phone' => 'required',
+    'address' => 'required',
+    ]);
     Supplier::create([
       'name' =>$request-> name,
        'phone'=>$request-> phone,

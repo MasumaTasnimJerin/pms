@@ -43,7 +43,6 @@
                                         </select>
 
                                     </div>
-
                                     <div class="form-group">
                                         <label>Purchase Price</label>
                                         <input type="number"  min=0 class="form-control" name="purchase_price" value="{{$medicine->purchase_price}}">
@@ -66,6 +65,7 @@
                                       <label>Generic Name</label>
                                       <input type="text" class="form-control"name="generic name" value="{{$medicine->generic_name}}">
                                   </div>
+
                                   <div class="form-group">
                                       <label>Company</label>
                                       <input type="text" class="form-control"name="company" value="{{$medicine->company}}">

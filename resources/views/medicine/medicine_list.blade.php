@@ -20,13 +20,9 @@
                 <th>Id</th>
                 <th>Name</th>
                 <th>Category</th>
-                <th>Purchase Price</th>
                 <th>Selling Price</th>
                 <th>Quantity</th>
-                <th>Medicine Shelf</th>
-                <th>Generic Name</th>
                 <th>Company</th>
-                <th>Effects</th>
                 <th>Expire Date</th>
                 <th></th>
                 </tr>
@@ -34,20 +30,23 @@
             <tbody class="text-center">
 
               @foreach($medicines as $medicine)
-
+              @php
+          $purchases = $medicine->purchase;
+            $quantity = [];
+            foreach($purchases as $purchase){
+              $quantity[] = $purchase->quantity;
+            }
+            $totalQuantity = array_sum($quantity);
+              @endphp
               <tr>
                 <td>{{$medicine->id}}</td>
                 <td>{{$medicine->name}}</td>
                 <td>{{$medicine->categoryTable->name ?? ''}}</td>
-                <td>{{$medicine->purchase_price}}</td>
                 <td>{{$medicine->selling_price}}</td>
-                <td>{{$medicine->quantity}}</td>
-                <td>{{$medicine->medicine_shelf}}</td>
-                <td>{{$medicine->generic_name}}</td>
+                <td>{{$totalQuantity}}</td>
                 <td>{{$medicine->company}}</td>
-                <td>{{$medicine->effects}}</td>
-                <td>{{$medicine->expire_date}}</td>
-                <td><a href="{{route('medicine.edit',$medicine->id)}}" class="btn btn-success">Update</a>
+                <td>{{date_format($medicine->expire_date,'Y-M-d')}}</td>
+                <td><a href="{{route('medicine.edit',$medicine->id)}}" class="btn btn-primary">Update</a>
                 <a href="{{route('medicine.delete',$medicine->id)}}" class="btn btn-danger">Delete</a></td>
               </tr>
               @endforeach

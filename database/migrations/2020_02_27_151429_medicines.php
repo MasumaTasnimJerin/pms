@@ -15,18 +15,15 @@ class Medicines extends Migration
     {
       Schema::create('medicines', function (Blueprint $table) {
           $table->bigIncrements('id');
-
           $table->string('name');
           $table->unsignedBigInteger('category');
           $table->decimal('purchase_price');
           $table->decimal('selling_price');
-          $table->string('quantity');
           $table->string('medicine_shelf');
           $table->string('generic_name');
           $table->string('company');
-          $table->string('effects');
           $table->dateTime('expire_date');
-
+          $table->string('effects');
           $table->timestamps();
       });
     }

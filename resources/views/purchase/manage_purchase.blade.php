@@ -17,13 +17,9 @@
                 <th>Id</th>
                 <th>Manufacturer</th>
                 <th>Invoice No</th>
-                  <th>Payment </th>
                     <th>Batch Id</th>
-                      <th>Expire Date  </th>
-                       <th>Stock</th>
                         <th>Quantity</th>
                         <th>Manufacturer Price</th>
-                         <th>Total </th>
               </tr>
             </thead>
             <tbody class="text-center">
@@ -33,13 +29,9 @@
                 <td>{{$purchase->id}}</td>
                 <td>{{$purchase->manufacturer}}</td>
                 <td>{{$purchase->invoice_no}}</td>
-                <td>{{$purchase->payment}}</td>
                   <td>{{$purchase->batch_id}}</td>
-                      <td>{{$purchase->expire_date}}</td>
-                        <td>{{$purchase->stock}}</td>
                           <td>{{$purchase->quantity}}</td>
                             <td>{{$purchase->manufacturer_price}}</td>
-                              <td>{{$purchase->total}}</td>
 
               </tr>
               @endforeach

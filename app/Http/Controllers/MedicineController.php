@@ -17,13 +17,24 @@ class MedicineController extends Controller
 
   public function create_medicine(Request $request)
   {
+    $request->validate([
+    'name'=> 'required',
+    'category' => 'required',
+    'purchase_price' => 'required',
+    'selling_price' => 'required',
+    'medicine_shelf' => 'required',
+    'generic_name' => 'required',
+    'company' => 'required',
+    'effects' => 'required',
+    'expire_date' => 'required',
 
+
+    ]);
     $data =[
       'name' =>$request->name,
        'category'=>$request->category,
         'purchase_price'=>$request->purchase_price,
         'selling_price'=>$request->selling_price,
-         'quantity'=>$request->quantity,
           'medicine_shelf'=>$request->medicine_shelf,
           'generic_name'=>$request->generic_name,
            'company'=>$request->company,
@@ -41,8 +52,8 @@ class MedicineController extends Controller
   //Medicine List
   public function medicine_list()
   {
-    $medicines = Medicine::with('categoryTable')->get();
-
+    $medicines = Medicine::with('categoryTable','purchase')->get();
+//dd($medicines);
       return view('medicine.medicine_list',compact('medicines'));
   }
   //Update Medicine
@@ -55,16 +66,15 @@ class MedicineController extends Controller
   public function update(Request $request,$id)
   {
       $data =[
-          'name' =>$request->name,
-          'category'=>$request-> category,
-           'purchase_price'=>$request-> purchase_price,
-           'selling_price'=>$request-> selling_price,
-          'quantity'=>$request-> quantity,
-           'medicine_shelf'=>$request-> medicine_shelf,
-           'generic_name'=>$request-> generic_name,
-            'company'=>$request-> company,
-             'effects'=>$request-> effects,
-             'expire_date'=>$request-> expire_date,
+        'name' =>$request->name,
+        'category'=>$request-> category,
+         'purchase_price'=>$request-> purchase_price,
+         'selling_price'=>$request-> selling_price,
+         'medicine_shelf'=>$request-> medicine_shelf,
+         'generic_name'=>$request-> generic_name,
+          'company'=>$request-> company,
+           'effects'=>$request-> effects,
+           'expire_date'=>$request-> expire_date,
       ];
 
       $medicine=Medicine::find($id);

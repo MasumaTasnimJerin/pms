@@ -11,28 +11,15 @@
                             <li class="nav-divider">
                               Admin Dashboard
                             </li>
-                            <li class="nav-item ">
-                    <!-- Users  -->
-                                <a class="nav-link active" href="#" data-toggle="collapse"
-                                aria-expanded="false" data-target="#submenu-1" aria-controls="submenu-1">
-                                <i class="fa fa-fw fa-user-circle"></i>Users <span class="badge badge-success">6</span></a>
-
-                                <div id="submenu-1" class="collapse submenu" style="">
-                                    <ul class="nav flex-column">
-
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{route('user_list')}}">User List</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{route('add_role')}}">Add User Role</a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" href="{{route('role_list')}}">Role List</a>
-                                        </li>
-
-                                    </ul>
-                                </div>
+                            @if(auth()->user()->role === 'admin')
+                            <!-- Users  -->
+                          
+                            <li class="nav-item">
+                              <a class="nav-link" href="{{route('user_list')}}"><i class="fas fa-fw fa-users"></i>
+                                <span>Users</span></a>
                             </li>
+
+@endif
 
                             <!-- Medicine  -->
 
@@ -53,7 +40,7 @@
                                             <a class="nav-link" href="{{route('add_medicine')}}">Add Medicine</a>
                                         </li>
 
-                                                                  </ul>
+                                      </ul>
                                 </div>
                             </li>
 
@@ -114,12 +101,13 @@
                                 </div>
                             </li>
 
+
                             <!-- Reports -->
                             <li class="nav-item ">
                                 <a class="nav-link" href="#" data-toggle="collapse" aria-expanded="false"
-                                data-target="#submenu-6" aria-controls="submenu-6">
+                                data-target="#submenu-7" aria-controls="submenu-6">
                                 <i class="fab fa-fw fa-wpforms"></i>Reports </a>
-                                <div id="submenu-6" class="collapse submenu" style="">
+                                <div id="submenu-7" class="collapse submenu" style="">
                                     <ul class="nav flex-column">
                                         <li class="nav-item">
                                             <a class="nav-link" href="pages/form-elements.html">Sales Report</a>
@@ -130,11 +118,6 @@
                                     </ul>
                                 </div>
                             </li>
-
-
-
-
-
                           </ul>
                       </div>
                   </nav>
@@ -145,6 +128,8 @@
                                   </div>
                               </li>
                           </ul>
+
+
                       </div>
                   </nav>
               </div>

@@ -20,12 +20,12 @@
                                   <span>POS</span></a>
                               </li>
 
-                            <!-- Stock -->
 
-                            <li class="nav-item">
-                              <a class="nav-link" href=""><i class="fas fa-fw fa-users"></i>
-                                <span>Stock</span></a>
-                            </li>
+                              <!-- Stock -->
+                              <li class="nav-item">
+                                <a class="nav-link" href="{{route('stock_list')}}"><i class="fas fa-fw fa-users"></i>
+                                  <span>Stock</span></a>
+                              </li>
 
 
                             <!-- All Sales -->
@@ -47,7 +47,7 @@
                                           <a class="nav-link" href="{{route('add_expense')}}">Add Expense</a>
                                         </li>
                                         <li class="nav-item">
-                                          <a class="nav-link" href=""> Expense List</a>
+                                          <a class="nav-link" href="{{route('expense_list')}}"> Expense List</a>
                                         </li>
                                     </ul>
                                 </div>

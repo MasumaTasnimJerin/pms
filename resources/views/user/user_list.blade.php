@@ -28,8 +28,12 @@
                 <td>{{$user->id}}</td>
                 <td>{{$user->name}}</td>
                 <td>{{$user->email}}</td>
-                <td>{{implode(',',$user->roles()->get()->pluck('name')->toArray())}}</td>
-              <td><a href="{{route('user_update',$user->id)}}" class="btn btn-info">Assign Role</a></td>
+                <td>{{$user->role}}</td>
+              <td>
+                @if(auth()->user()->role === 'admin')
+                <a href="{{route('user_update',$user->id)}}" class="btn btn-primary">Assign Role</a>
+@endif
+              </td>
               </tr>
               @endforeach
             </tbody>

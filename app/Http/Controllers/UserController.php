@@ -21,6 +21,7 @@ public function user_update($user)
 {
      $roles = Role::all();
      $user = User::findOrFail($user);
+
       return view('user.user_update')->with([
         'user' => $user,
         'roles'=> $roles
@@ -28,7 +29,10 @@ public function user_update($user)
 }
 public function update(Request $request,User $user)
 {
- $user->roles()->sync($request->roles);
+
+ $user->update([
+   'role'=>$request->input('role')
+ ]);
    return redirect()->route('user_list')
              ->with('success','User updated successfully.');
 }

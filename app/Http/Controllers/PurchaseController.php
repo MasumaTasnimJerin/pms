@@ -20,14 +20,10 @@ class PurchaseController extends Controller
     Purchase::create([
       'manufacturer' =>$request-> manufacturer,
        'invoice_no'=>$request-> invoice_no,
-        'payment'=>$request-> payment,
          'medicine_id' =>$request-> medicine_id,
           'batch_id'=>$request-> batch_id,
-           'expire_date'=>$request-> expire_date,
-            'stock'=>$request-> stock,
             'quantity'=>$request-> quantity,
             'manufacturer_price'=>$request-> manufacturer_price,
-            'total'=>$request-> total,
 
 
 

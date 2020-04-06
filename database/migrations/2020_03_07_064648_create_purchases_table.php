@@ -17,14 +17,10 @@ class CreatePurchasesTable extends Migration
             $table->bigIncrements('id');
             $table->string('manufacturer');
             $table->string('invoice_no');
-            $table->decimal('payment');
             $table->string('batch_id');
             $table->unsignedBigInteger('medicine_id');
-            $table->dateTime('expire_date');
-            $table->string('stock');
             $table->string('quantity');
             $table->decimal('manufacturer_price');
-            $table->string('total');
             $table->timestamps();
         });
     }

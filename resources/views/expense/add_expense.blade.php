@@ -16,7 +16,17 @@
                               @if(Session::has('message'))
                               <p class="alert alert-success">{{Session::get('message')}}</p>
                               @endif
-                            </div>
+
+                              @if ($errors->any())
+                                  <div class="alert alert-danger">
+                                      <ul>
+                                          @foreach ($errors->all() as $error)
+                                              <li>{{ $error }}</li>
+                                          @endforeach
+                                      </ul>
+                                  </div>
+                              @endif
+                        </div>
                             <div class="card-body">
 
 
@@ -25,12 +35,12 @@
 
                                   @csrf
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1"> Expense</label>
-                                        <input type="text" class="form-control" name="expense" >
+                                        <label for="exampleInputEmail1"> Expense Name</label>
+                                        <input type="text" class="form-control" name="name" >
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Amount</label>
-                                        <input type="text" class="form-control" name="amount" >
+                                        <input type="number" class="form-control" name="amount" >
                                     </div>
 
                                     <button type="submit" class="btn btn-info"> Submit</button>

@@ -25,7 +25,7 @@
               <tr>
                 <td>{{$role->name}}</td>
                 <td>{{$role->description}}</td>
-                <td><a href="{{route('role.edit',$role->id)}}" class="btn btn-success">Update</a>
+                <td><a href="{{route('role.edit',$role->id)}}" class="btn btn-primary">Update</a>
                 <a href="{{route('role.delete',$role->id)}}" class="btn btn-danger">Delete</a></td>
               </tr>
               @endforeach

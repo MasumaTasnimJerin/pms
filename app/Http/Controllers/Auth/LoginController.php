@@ -23,14 +23,10 @@ class LoginController extends Controller
 
     protected function redirectTo()
     {
-      $userRoles = Auth::user()->roles->pluck('name');
-      if($userRoles->contains('Admin')){
-        return 'admin_dashboard';
+      $userRoles = Auth::user()->role;
+      if($userRoles ==='admin' or $userRoles==='pharmacist'){
+        return route('admin_dashboard');
       }
-      elseif($userRoles->contains('Parmacist')){
-        return 'pharmacist_dashboard';
-      }
-
       else{
         return 'login';
       }
